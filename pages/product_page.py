@@ -12,8 +12,8 @@ class ProductPage(BasePage):
 
     def product_title_should_match_product_in_basket(self):
         success_alert_text = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE_TEXT).text
-        assert ProductPageLocators.PRODUCT_TITLE in success_alert_text, \
-            "Test product doesn't match product added to basket"
+        product_title_text = self.browser.find_element(*ProductPageLocators.PRODUCT_TITLE).text
+        assert product_title_text in success_alert_text, "Test product doesn't match product added to basket"
 
     def product_price_and_basket_should_match(self):
         basket_text = self.browser.find_element(*ProductPageLocators.BASKET_TEXT).text

@@ -13,7 +13,7 @@ class LoginPageLocators:
 class ProductPageLocators:
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-primary.btn-add-to-basket")
     SUCCESS_MESSAGE_ALERT = (By.CSS_SELECTOR, "div.alert-success")
-    PRODUCT_TITLE = "The shellcoder's handbook"
+    PRODUCT_TITLE = (By.CSS_SELECTOR, "div.product_main > h1")
     SUCCESS_MESSAGE_TEXT = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")
     PRODUCT_PRICE_MAIN = (By.CSS_SELECTOR, "div.product_main > p.price_color")
     BASKET_TEXT = (By.CSS_SELECTOR, 'div.basket-mini')
