@@ -13,6 +13,10 @@ class BasePage:
         self.url = url
         self.browser.implicitly_wait(timeout)
 
+# ================================================================== #
+# =========================Common Actions=========================== #
+# ================================================================== #
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
@@ -53,9 +57,25 @@ class BasePage:
             return True
         return False
 
+# ================================================================== #
+# ========================Login Page Section======================== #
+# ================================================================== #
+
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
+
+# ================================================================== #
+# ========================Basket Page Section======================= #
+# ================================================================== #
+
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        link.click()
